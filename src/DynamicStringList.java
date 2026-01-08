@@ -24,9 +24,14 @@ public class DynamicStringList implements StringList {
 
     @Override
     public void add(String value) {
-        // TODO Auto-generated method stub
-
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        if(size == stringList.length) {
+            
+        } else {
+            // we add a element if there is a space
+            stringList[size] = value;
+            size++;
+        }
+        
     }
 
     @Override
