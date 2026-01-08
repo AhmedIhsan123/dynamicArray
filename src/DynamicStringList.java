@@ -61,5 +61,15 @@ public class DynamicStringList implements StringList {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'capacity'");
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+        for (int i = 0; i < stringList.length; i++) {
+            str.append(stringList[i] + " ");
+        }
+
+        return str.toString();
+    }
     
 }
