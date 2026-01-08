@@ -3,6 +3,11 @@ public class DynamicStringList implements StringList {
     // Instance fields
     private static String[] stringList;
 
+    //constructor
+    public DynamicStringList() {
+        stringList = new String[20];
+    }
+
     @Override
     public String get(int index) {
         // TODO Auto-generated method stub
