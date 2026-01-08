@@ -1,5 +1,8 @@
 public class DynamicStringList implements StringList {
 
+    // Instance fields
+    private static String[] stringList;
+
     @Override
     public String get(int index) {
         // TODO Auto-generated method stub
