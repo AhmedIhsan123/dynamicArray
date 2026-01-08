@@ -24,8 +24,19 @@ public class DynamicStringList implements StringList {
 
     @Override
     public void add(String value) {
+        // Check if we have enough space for a new element
         if(size == stringList.length) {
+            // Create a new array double the size of the original
+            String[] tempArr = new String[stringList.length * 2];
             
+            // Iterate through all elements currently in the string array
+            for (int i = 0; i < stringList.length; i++) {
+                // Set indexes of temp array
+                tempArr[i] = stringList[i];
+            }
+
+            // Set new adress for class list
+            stringList = tempArr;
         } else {
             // we add a element if there is a space
             stringList[size] = value;
