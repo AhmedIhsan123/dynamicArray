@@ -1,11 +1,13 @@
 public class DynamicStringList implements StringList {
 
     // Instance fields
-    private static String[] stringList;
+    private String[] stringList;
+    private int size;
 
     //constructor
     public DynamicStringList() {
         stringList = new String[20];
+        size = 0;
     }
 
     @Override
@@ -23,6 +25,7 @@ public class DynamicStringList implements StringList {
     @Override
     public void add(String value) {
         // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 
@@ -35,7 +38,7 @@ public class DynamicStringList implements StringList {
     @Override
     public int size() {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return size;
     }
 
     @Override
