@@ -72,8 +72,7 @@ public class DynamicStringList implements StringList {
 
     @Override
     public int capacity() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'capacity'");
+        return stringList.length;
     }
 
     @Override
