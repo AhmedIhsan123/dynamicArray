@@ -18,8 +18,15 @@ public class DynamicStringList implements StringList {
 
     @Override
     public void set(int index, String value) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'set'");
+        // Validate the given index
+        if ((index > size || index < size)) {
+            throw new IndexOutOfBoundsException();
+        } else if (value.equals(null)) {
+            throw new IllegalArgumentException("Please input a valid string.");
+        };
+
+        // All checks are valid, set the index to the given value;
+        stringList[index] = value;
     }
 
     @Override
