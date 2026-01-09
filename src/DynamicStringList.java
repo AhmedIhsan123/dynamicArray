@@ -19,7 +19,7 @@ public class DynamicStringList implements StringList {
     @Override
     public void set(int index, String value) {
         // Validate the given index
-        if ((index > size || index < size)) {
+        if ((index > size || index < 0)) {
             throw new IndexOutOfBoundsException();
         } else if (value.equals(null)) {
             throw new IllegalArgumentException("Please input a valid string.");
