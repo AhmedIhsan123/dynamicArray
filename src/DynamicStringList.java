@@ -73,7 +73,9 @@ public class DynamicStringList implements StringList {
     public String toString() {
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < stringList.length; i++) {
-            str.append(stringList[i] + " ");
+            if (stringList[i] != null) {
+                str.append(stringList[i] + ", ");
+            }
         }
 
         return str.toString();
