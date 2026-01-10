@@ -61,22 +61,6 @@ public class DynamicStringList implements StringList {
 
     @Override
     public String remove(int index) {
-<<<<<<< HEAD
-        // Validate given index
-        if ((index > size || index < 0)) {
-            throw new IndexOutOfBoundsException();
-        }
-
-        stringList[index] = null;
-
-        for(int i = index; i < size - 1; i++) {
-            String temp = stringList[i + 1];
-            stringList[i + 1] = stringList[index];
-            stringList[index] = temp;
-        }
-
-        return null;
-=======
         // first we should validate the index
         if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException();
@@ -96,7 +80,6 @@ public class DynamicStringList implements StringList {
 
         // return the removed value
         return removedValue;
->>>>>>> ef83150baf3bd8f31f4b7d2f6fd20b7f5870f8bb
     }
 
     @Override
