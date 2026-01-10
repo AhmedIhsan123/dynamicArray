@@ -44,19 +44,20 @@ public class DynamicStringList implements StringList {
             String[] tempArr = new String[stringList.length * 2];
 
             // Iterate through all elements currently in the string array
-            for (int i = 0; i < stringList.length; i++) {
+            for (int i = 0; i < size; i++) {
                 // Set indexes of temp array
                 tempArr[i] = stringList[i];
             }
 
             // Set new adress for class list
             stringList = tempArr;
-        } else {
-            // we add a element if there is a space
-            stringList[size] = value;
-            size++;
+
+
         }
 
+        // we add a element if there is a space
+        stringList[size] = value;
+        size++;
     }
 
     @Override
