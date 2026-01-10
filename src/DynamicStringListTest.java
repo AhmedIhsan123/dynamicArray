@@ -51,13 +51,38 @@ public class DynamicStringListTest {
     // test to see if size decreases after remove
     @Test
     public void testRemoveReturnsValue() {
-    DynamicStringList list = new DynamicStringList();
-    list.add("A");
-    list.add("B");
-    list.add("C");
+        DynamicStringList list = new DynamicStringList();
+        list.add("A");
+        list.add("B");
+        list.add("C");
 
-    String actual = list.remove(1);
-    assertEquals("B", actual);
-}
+        String actual = list.remove(1);
+        assertEquals("B", actual);
+    }
+
+    // Test for adding elements to an array
+    @Test
+    public void testSizeCounter() {
+        DynamicStringList list = new DynamicStringList();
+        list.add("Hello");
+        list.add("There");
+        list.add("Yo");
+
+        int actualSize = list.size();
+        assertEquals(3, actualSize);
+    }
+
+    // Test for resizing array when getting too large
+    @Test
+    public void testArrayResize() {
+        DynamicStringList list = new DynamicStringList();
+        int capacity = list.capacity();
+
+        for (int i = 1; i <= capacity + 1; i++) {
+            list.add("Test");
+        }
+
+        assertEquals(40, list.capacity());
+    }
 
 }
