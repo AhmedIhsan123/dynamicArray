@@ -54,8 +54,20 @@ public class DynamicStringList implements StringList {
 
     @Override
     public String remove(int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        // Validate given index
+        if ((index > size || index < 0)) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        stringList[index] = null;
+
+        for(int i = index; i < size - 1; i++) {
+            String temp = stringList[i + 1];
+            stringList[i + 1] = stringList[index];
+            stringList[index] = temp;
+        }
+
+        return null;
     }
 
     @Override
