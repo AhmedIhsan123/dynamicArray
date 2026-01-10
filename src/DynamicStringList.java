@@ -4,7 +4,7 @@ public class DynamicStringList implements StringList {
     private String[] stringList;
     private int size;
 
-    //constructor
+    // constructor
     public DynamicStringList() {
         stringList = new String[20];
         size = 0;
@@ -12,8 +12,14 @@ public class DynamicStringList implements StringList {
 
     @Override
     public String get(int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        // first we need to validate the given index
+        if ((index >= size || index < 0)) {
+            // if the index is out of bounds we throw an exception
+            throw new IndexOutOfBoundsException();
+        }
+
+        // if all checks are valid we return the value at the given index
+        return stringList[index];
     }
 
     @Override
@@ -23,7 +29,8 @@ public class DynamicStringList implements StringList {
             throw new IndexOutOfBoundsException();
         } else if (value.equals(null)) {
             throw new IllegalArgumentException("Please input a valid string.");
-        };
+        }
+        ;
 
         // All checks are valid, set the index to the given value;
         stringList[index] = value;
@@ -32,10 +39,10 @@ public class DynamicStringList implements StringList {
     @Override
     public void add(String value) {
         // Check if we have enough space for a new element
-        if(size == stringList.length) {
+        if (size == stringList.length) {
             // Create a new array double the size of the original
             String[] tempArr = new String[stringList.length * 2];
-            
+
             // Iterate through all elements currently in the string array
             for (int i = 0; i < stringList.length; i++) {
                 // Set indexes of temp array
@@ -49,11 +56,12 @@ public class DynamicStringList implements StringList {
             stringList[size] = value;
             size++;
         }
-        
+
     }
 
     @Override
     public String remove(int index) {
+<<<<<<< HEAD
         // Validate given index
         if ((index > size || index < 0)) {
             throw new IndexOutOfBoundsException();
@@ -68,6 +76,27 @@ public class DynamicStringList implements StringList {
         }
 
         return null;
+=======
+        // first we should validate the index
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        // save the value that should be removed
+        String removedValue = stringList[index];
+
+        // shift all elements/fill in the gaps
+        for (int i = index; i < size - 1; i++) {
+            stringList[i] = stringList[i + 1];
+        }
+
+        // clear the last element and also decrease the size
+        stringList[size - 1] = null;
+        size--;
+
+        // return the removed value
+        return removedValue;
+>>>>>>> ef83150baf3bd8f31f4b7d2f6fd20b7f5870f8bb
     }
 
     @Override
@@ -77,8 +106,7 @@ public class DynamicStringList implements StringList {
 
     @Override
     public int capacity() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'capacity'");
+        return stringList.length;
     }
 
     @Override
@@ -92,5 +120,5 @@ public class DynamicStringList implements StringList {
 
         return str.toString();
     }
-    
+
 }
